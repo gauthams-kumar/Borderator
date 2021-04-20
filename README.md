@@ -2,16 +2,17 @@
 A lightweight python application for predictable borders to images
 
 ### Abstract
-Without using a web service, there's no lightweight method to add  borders to photos on Windows whilst preserving original image fidelity. One approach is to add borders by expanding the canvas using image processing software, a slow and inconsistent process. As these borders must be specified manually in pixels, this method introduces variability in perceived border thickness and ouput aspect ratio (unless you lean on prior calulcations). This results in borders that vary from photo to photo, especially if the original images have different dimensions to begin with.
 
-This version of Borderator, by contrast, prioritises the user's specification of aspect ratio and border thickness. From these data, the program determines the necessary image dimensions and automatically selects landscape and portrait output based on the source. The result is quick, consistent, and high-quality.
+It can be hard to add visually-consistent borders to images quickly. Most approaches will require manual calculation or processing images one by one.
+
+*Borderator* rapidly adds borders to batches or individual images at a consistent, user-specified aspect ratio and thickness. It preserves original orientation and, if desired, aspect ratio for an even border. Regardless of original resolution and file type, output files using the same recipe will have a unified appearance.
 
 ### Usage
-This script adds  borders to images, allowing the user to:
-* target an original image or folder by its path
-* pop that original image in the centre of a new field with arbitrary:
-    * colour
-    * aspect ratio, including the original aspect ratio
-    * short margin thickness i.e. proportional distance from the image edge
-* save that new image as a high-quality JPEG file without any discernible loss in quality
-* maintain visual consistency between images processed using the same recipe
+This script adds borders to images, allowing the user to:
+* Target an original image or folder by its path
+* Specify border attributes to be added:
+    * Colour (either hex or Tkinter color)
+    * Aspect ratio, including the original aspect ratio
+    * Minimum margin thickness (in percent)
+* Save new images as high-quality JPEG files in a  `/bordered` directory without any discernible loss in quality
+* Maintain visual consistency between images processed using the same recipe
