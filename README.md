@@ -1,3 +1,5 @@
+![Borderator icon](/Resources/borderator.png?raw=true "Borderator")
+
 # Borderator
 A lightweight python application for predictable borders to images
 
