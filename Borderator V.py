@@ -127,25 +127,26 @@ def borderate(imageFile):
 
 
 # GUI ELEMENTS
+
 # short dimension
 fpLabel = tkinter.Label(window, text="Target file path")
-fpEntry = tkinter.Entry(window, relief="flat")
+fpEntry = tkinter.Entry(window)
 
 # margin entry
 marginLabel = tkinter.Label(window, text="Short margin (%)")
-marginEntry = tkinter.Entry(window, relief="flat")
+marginEntry = tkinter.Entry(window)
 marginEntry.insert(0, '5')
 
 # margin colour
 marginColourLabel = tkinter.Label(window, text="Margin colour")
-marginColourEntry = tkinter.Entry(window, relief="flat")
+marginColourEntry = tkinter.Entry(window)
 marginColourEntry.insert(0, 'white')
 
 # aspect ratio
 arLabel = tkinter.Label(window, text="Aspect ratio")
-ar1Entry = tkinter.Entry(window, width=5, relief="flat", justify="center")
+ar1Entry = tkinter.Entry(window, width=5, justify="center")
 aspectSeparatorLabel = tkinter.Label(window, text=":")
-ar2Entry = tkinter.Entry(window, width=5, relief="flat", justify="center")
+ar2Entry = tkinter.Entry(window, width=5, justify="center")
 ar1Entry.insert(0, '1')
 ar2Entry.insert(0, '1')
 
@@ -157,28 +158,36 @@ filetypeEntry.insert(0, '.jpg')
 # button
 borderateImage = tkinter.PhotoImage(file="Resources/button.png").zoom(1, 1)
 borderateButton = tkinter.Button(window, text="BORDERATE", command=runMode, bg="deep pink",
-                            activebackground="black", overrelief="groove", image=borderateImage, relief="flat")
+                            activebackground="black", image=borderateImage, relief="flat", borderwidth=8)
 
 # instructions
-inst0 = tkinter.Label(window, text="Specify either a target file or folder", fg="grey")
+inst0 = tkinter.Label(window, text="Specify either a target file or folder")
 inst1 = tkinter.Label(
-    window, text="Margin colour in hex or Tkinter name", fg="grey")
-inst2 = tkinter.Label(window, text="Enter 0:0 for a regular border", fg="grey")
+    window, text="Margin colour in hex or Tkinter name")
+inst2 = tkinter.Label(window, text="Enter 0:0 for a regular border")
 
 # spacers
-spacer = tkinter.Label(window, text="")
+spacer0 = tkinter.Label(window, text="")
 spacer1 = tkinter.Label(window, text="")
-spacer2 = tkinter.Label(window, text="")
 
 # GUI GRID
-spacer.grid(column=0, row=1)
-fpLabel.grid(column=0, row=2, sticky=tkinter.E)
-fpEntry.grid(column=1, row=2)
+window.configure(bg='#202020')
+
+for child in window.winfo_children():
+    child.grid_configure(padx=(10,10), pady=(0,10))
+    if 'Label' in str(child.winfo_class):
+        child.configure(bg='#202020', fg="white")
+    elif 'Entry' in str(child.winfo_class):
+        #child.grid_configure(padx=(10,10))
+        child.configure(bg='#101010', fg="white", highlightthickness=1, highlightbackground = "#535353", highlightcolor= "#939393", borderwidth=8, relief="flat", insertbackground='deep pink')
+
+fpLabel.grid(column=0, row=2, sticky=tkinter.E, pady=(10,10))
+fpEntry.grid(column=1, row=2, pady=(10,10))
 
 marginLabel.grid(column=0, row=3, sticky=tkinter.E)
 marginEntry.grid(column=1, row=3)
 
-marginColourLabel.grid(column=0, row=4)
+marginColourLabel.grid(column=0, row=4, sticky=tkinter.E)
 marginColourEntry.grid(column=1, row=4)
 
 arLabel.grid(column=0, row=5, sticky=tkinter.E)
@@ -189,14 +198,17 @@ ar2Entry.grid(column=1, row=5, sticky=tkinter.E)
 filetypeLabel.grid(column=0, row=6, sticky=tkinter.E)
 filetypeEntry.grid(column=1, row=6)
 
-spacer1.grid(column=0, row=7)
+spacer0.grid(column=0, row=7, pady=(0,0))
+inst0.config(fg='gray')
+inst1.config(fg='gray')
+inst2.config(fg='gray')
+inst0.grid(column=0, row=8, columnspan=2, sticky='nesw', pady=(0,0),)
+inst1.grid(column=0, row=9, columnspan=2, sticky='nesw', pady=(0,0))
+inst2.grid(column=0, row=10, columnspan=2, sticky='nesw', pady=(0,0))
 
-inst0.grid(column=0, row=8, columnspan=2, sticky='nesw')
-inst1.grid(column=0, row=9, columnspan=2, sticky='nesw')
-inst2.grid(column=0, row=10, columnspan=2, sticky='nesw')
+spacer1.grid(column=0, row=11, pady=(0,0))
 
-spacer2.grid(column=0, row=11)
-borderateButton.grid(column=0, row=12, columnspan=2, sticky='nesw')
+borderateButton.grid(column=0, row=12, columnspan=2, sticky='nesw', pady=(0,10))
 
 # MAINLOOP FOREVER
 window.mainloop()

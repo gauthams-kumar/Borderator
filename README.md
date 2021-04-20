@@ -18,5 +18,6 @@ This script adds borders to images, allowing the user to:
     * Colour (either hex or Tkinter color)
     * Aspect ratio, including the original aspect ratio
     * Minimum margin thickness (in percent)
+* Specify output filetype
 * Save new images as high-quality JPEG files in a  `/bordered` directory without any discernible loss in quality
 * Maintain visual consistency between images processed using the same recipe
