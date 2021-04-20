@@ -1,4 +1,6 @@
-![Borderator icon](/Resources/borderator.png?raw=true "Borderator")
+<p align="center">
+  <img width="100"  src="/Resources/borderator.png">
+</p>
 
 # Borderator
 A lightweight python application for predictable borders to images
