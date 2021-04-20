@@ -2,12 +2,11 @@
 BORDERATOR
 by Gautham Kumar
 """
+version = str(4.3)
 
 from PIL import Image
 import os
 import tkinter
-
-version = str(4.3)
 
 """
 TO DO
@@ -105,7 +104,8 @@ def borderate(imageFile):
     borderedImage.paste(originalImage, (pasteX, pasteY))
 
     saveDir = os.path.dirname(imageFile) + "\\bordered"
-    saveName = f"{originalName} #BR({round(marginPercent)}%; {round(max(aspect))}-{round(min(aspect))}).jpg"
+    saveName = f"{originalName} #BR({round(marginPercent)}%; {round(max(aspect))}-{round(min(aspect))})"
+    saveName += filetypeEntry.get()
 
     if not os.path.isdir(saveDir):
         os.makedirs(saveDir)
@@ -149,6 +149,11 @@ ar2Entry = tkinter.Entry(window, width=5, relief="flat", justify="center")
 ar1Entry.insert(0, '1')
 ar2Entry.insert(0, '1')
 
+# filetype
+filetypeLabel = tkinter.Label(window, text="Output filetype")
+filetypeEntry= tkinter.Entry(window, relief="flat")
+filetypeEntry.insert(0, '.jpg')
+
 # button
 borderateImage = tkinter.PhotoImage(file="Resources/button.png").zoom(1, 1)
 borderateButton = tkinter.Button(window, text="BORDERATE", command=runMode, bg="deep pink",
@@ -169,14 +174,21 @@ spacer2 = tkinter.Label(window, text="")
 spacer.grid(column=0, row=1)
 fpLabel.grid(column=0, row=2, sticky=tkinter.E)
 fpEntry.grid(column=1, row=2)
+
 marginLabel.grid(column=0, row=3, sticky=tkinter.E)
 marginEntry.grid(column=1, row=3)
+
 marginColourLabel.grid(column=0, row=4)
 marginColourEntry.grid(column=1, row=4)
+
 arLabel.grid(column=0, row=5, sticky=tkinter.E)
 ar1Entry.grid(column=1, row=5, sticky=tkinter.W)
 aspectSeparatorLabel.grid(column=1, row=5)
 ar2Entry.grid(column=1, row=5, sticky=tkinter.E)
+
+filetypeLabel.grid(column=0, row=6, sticky=tkinter.E)
+filetypeEntry.grid(column=1, row=6)
+
 spacer1.grid(column=0, row=7)
 
 inst0.grid(column=0, row=8, columnspan=2, sticky='nesw')
