@@ -3,13 +3,13 @@
 </p>
 
 # Borderator
-A lightweight python application for predictable borders to images
+A lightweight python application for adding predictable borders to images.
 
 ### Abstract
 
-It can be hard to add visually-consistent borders to images quickly. Most approaches will require manual calculation or processing images one by one.
+It can be frustrating to add visually consistent borders to images quickly. Most approaches will require manual calculation or processing images one by one, and others will produce visual inconsistencies between images that were meant to look cohesive.
 
-*Borderator* rapidly adds borders to batches or individual images at a consistent, user-specified aspect ratio and thickness. It preserves original orientation and, if desired, aspect ratio for an even border. Regardless of original resolution and file type, output files using the same recipe will have a unified appearance.
+*Borderator* rapidly adds borders to batches or individual images at a reliable, user-specified aspect ratio and thickness. It preserves original orientation and, if desired, aspect ratio for an even border. Regardless of resolution, input file type, and output file type, bordered images from the same recipe will have a unified appearance without needing to open images or lean on prior calculations.
 
 ### Usage
 This script adds borders to images, allowing the user to:

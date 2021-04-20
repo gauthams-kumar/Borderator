@@ -2,7 +2,7 @@
 BORDERATOR
 by Gautham Kumar
 """
-version = str(4.3)
+version = str(4.4)
 
 from PIL import Image
 import os
