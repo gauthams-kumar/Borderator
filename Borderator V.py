@@ -4,8 +4,6 @@ by Gautham Kumar
 """
 
 from PIL import Image
-from tkinter import ttk
-from tkinter import messagebox
 import os
 import tkinter
 
