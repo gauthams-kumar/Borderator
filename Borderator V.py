@@ -129,21 +129,21 @@ def borderate(imageFile):
 # GUI ELEMENTS
 
 # short dimension
-fpLabel = tkinter.Label(window, text="Target file path")
+fpLabel = tkinter.Label(window, text="Target file/folder path")
 fpEntry = tkinter.Entry(window)
 
 # margin entry
-marginLabel = tkinter.Label(window, text="Short margin (%)")
+marginLabel = tkinter.Label(window, text="Minimum margin (%)")
 marginEntry = tkinter.Entry(window)
 marginEntry.insert(0, '5')
 
 # margin colour
-marginColourLabel = tkinter.Label(window, text="Margin colour")
+marginColourLabel = tkinter.Label(window, text="Border colour")
 marginColourEntry = tkinter.Entry(window)
 marginColourEntry.insert(0, 'white')
 
 # aspect ratio
-arLabel = tkinter.Label(window, text="Aspect ratio")
+arLabel = tkinter.Label(window, text="Output aspect ratio")
 ar1Entry = tkinter.Entry(window, width=5, justify="center")
 aspectSeparatorLabel = tkinter.Label(window, text=":")
 ar2Entry = tkinter.Entry(window, width=5, justify="center")
