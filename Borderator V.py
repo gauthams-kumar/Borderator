@@ -127,6 +127,8 @@ def borderate(imageFile):
 
 
 # GUI ELEMENTS
+logoImage = tkinter.PhotoImage(file="Resources/logo.png").zoom(1, 1)
+logoLabel = tkinter.Label(window, image=logoImage)
 
 # short dimension
 fpLabel = tkinter.Label(window, text="Target file/folder path")
@@ -181,8 +183,11 @@ for child in window.winfo_children():
         #child.grid_configure(padx=(10,10))
         child.configure(bg='#101010', fg="white", highlightthickness=1, highlightbackground = "#535353", highlightcolor= "#939393", borderwidth=8, relief="flat", insertbackground='deep pink')
 
-fpLabel.grid(column=0, row=2, sticky=tkinter.E, pady=(10,10))
-fpEntry.grid(column=1, row=2, pady=(10,10))
+
+logoLabel.grid(column=0, row=1, columnspan=2, pady=(20,20))
+
+fpLabel.grid(column=0, row=2, sticky=tkinter.E)
+fpEntry.grid(column=1, row=2)
 
 marginLabel.grid(column=0, row=3, sticky=tkinter.E)
 marginEntry.grid(column=1, row=3)
