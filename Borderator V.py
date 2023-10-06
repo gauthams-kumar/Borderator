@@ -6,6 +6,7 @@ version = str(4.4)
 
 from PIL import Image
 import os
+import sys
 import tkinter
 
 """
@@ -17,6 +18,7 @@ TO DO
 [x] batch process based on folder selection
 [] allow button click only when everything's filled out
 """
+os.chdir(sys.path[0])
 
 window = tkinter.Tk()
 window.title(f"Borderator {version}")
@@ -109,7 +111,7 @@ def borderate(imageFile):
 
     if not os.path.isdir(saveDir):
         os.makedirs(saveDir)
-        print(f"    created '\\bordered'")
+        print(f"    created '\\bordered' directory")
 
     fullSavePath = saveDir + "\\" + saveName
     borderedImage.save(fullSavePath, format="JPEG", quality=100, subsampling=0)
